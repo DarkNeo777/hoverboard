@@ -7,10 +7,16 @@ const SQUARES = 500;
 for(let i = 0; i < SQUARES; i++) {
     const square = document.createElement('div');
     square.classList.add('square');
-    colorNum =Math.floor(Math.random() * 6);
     
-    square.style.backgroundColor = colors[colorNum];
+
+    square.addEventListener('mouseover', () => setColor(square));
+    square.addEventListener('mouseout', () => removeColor(square));
+
     container.appendChild(square);
-    
 }
 
+function setColor(square) {
+    colorNum = Math.floor(Math.random() * 6);
+    square.style.backgroundColor = colors[colorNum];
+
+}
