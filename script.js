@@ -16,7 +16,12 @@ for(let i = 0; i < SQUARES; i++) {
 }
 
 function setColor(square) {
-    colorNum = Math.floor(Math.random() * 6);
-    square.style.backgroundColor = colors[colorNum];
+    colorNum = colors[Math.floor(Math.random() * colors.length)];
+    square.style.backgroundColor = colorNum;
+    square.style.boxShadow = '0 0 2px ${colorNum}, 0 0 10px ${colorNum}';
+}
 
+function removeColor(square) {
+    square.style.backgroundColor = '#1d1d1d';
+    square.style.boxShadow = '0 0 2px #000'
 }
